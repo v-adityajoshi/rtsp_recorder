@@ -1,0 +1,16 @@
+version: '2.1'
+services:
+  rtsp_recorder: 
+    container_name: rtsp_recorder
+    image: gateguardai/rtsp_recorder:v2.5
+    # command: "sleep infinity"
+    environment:
+      - TZ=Asia/Kolkata
+    volumes:
+      - /etc/hostname:/etc/hostname
+      - /data/RTSP_recorder:/app/RTSP_recorder
+      - /data:/data
+    ports:
+      - 8080:3000
+    expose:
+      - 3000
